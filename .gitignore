@@ -1,6 +1,16 @@
+# JetBrains IDE PyCharm 配置目录
 .idea
+
+# 资源目录，包括 chromedriver 跟 ico
+/lib/
+
+# Python venv 目录
+/venv/
+
+# PyInstaller 生成目录
 /build/
 /dist/
-/lib/
-/venv/
 /main.spec
+
+# 测试用 exe
+/main.exe
