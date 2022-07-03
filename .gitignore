@@ -1,15 +1,16 @@
-# Files and directories created by pub.
-.dart_tool/
-.packages
+# JetBrains IDE PyCharm 配置目录
+.idea
 
-# Conventional directory for build output.
-build/
+# 资源目录，包括 chromedriver 跟 ico
+/lib/
 
-# Jetbrains IDE
-.idea/
+# Python venv 目录
+/venv/
 
-# chromedriver
-source/
+# PyInstaller 生成目录
+/build/
+/dist/
+/main.spec
 
-# out file
-booksInfo.json
+# 测试用 exe
+/main.exe
