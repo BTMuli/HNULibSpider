@@ -25,7 +25,7 @@ from selenium.webdriver.common.by import By
 
 
 # 参数输入
-def argsInput(start=None, end=None):
+def argsInput():
     print("请输入图书编号 code ")
     try:
         start = int(input("请输入起始编号："))
