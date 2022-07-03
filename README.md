@@ -23,6 +23,16 @@ Description: 说明文档
 > + webdriver: 3.0.0
 > + chromedriver: 103.0.5060.53（压缩包内含文件）
 
+## 打包说明
+
+本项目采用 Dart 自带的 `dart compile` 进行打包，相关语句如下：
+
+```shell
+dart compile exe bin/main.dart
+```
+
+由于该命令目前不支持 `-i` 即添加图标操作，所以这个分支的可执行文件都是默认图标。
+
 ## LICENSE
 
 本项目采用与父项目一致的 `Apache License V2.0` 协议。
