@@ -13,7 +13,7 @@ Description: 说明文档
 
 ## 配置说明
 
-将项目 [Release](https://github.com/BTMuli/HNULibSpider/releases) 中的 `app.zip` 下载解压，然后打开其中的 `main.exe` 执行即可。
+将项目 [Release](https://github.com/BTMuli/HNULibSpider/releases) 中的 UpZIP 文件下载解压，然后打开其中的 `main.exe` 执行即可。
 
 > **建议在相关环境下运行**：
 >
@@ -37,6 +37,22 @@ pyinstaller -F main.py -i lib/cover.ico
 
 + `-F` ：打包成一个`exe` 应用程序
 + `-i`：指定程序 `ico` 图标目录
+
+### Tag 的处理
+
+由于 Github 不支持对于已有 tag  的删除操作，所以需要在本地命令行 进行操作并同步到远程。
+
+相关命令如下：
+
+```sh
+git push origin :refs/tags/[tagname]
+```
+
+如：
+
+```sh
+git push origin :refs/tags/alpha
+```
 
 ## LICENSE
 
