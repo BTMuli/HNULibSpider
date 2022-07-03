@@ -1,6 +1,6 @@
 ---
 Date: 2022-06-29
-Update: 2022-07-02
+Update: 2022-07-03
 Author: 目棃
 Description: 说明文档
 ---
@@ -13,7 +13,8 @@ Description: 说明文档
 
 ## 配置说明
 
-将项目 [Release](https://github.com/BTMuli/HNULibSpider/releases) 中的 `app.zip` 下载解压，然后打开其中的 `main.exe` 执行即可。
+将项目 [Release](https://github.com/BTMuli/HNULibSpider/releases) 中的 ZIP 文件下载解压，
+先启动 `chromedriver.exe` 再打开 `main.exe` 执行即可。
 
 > **建议在相关环境下运行**：
 >
