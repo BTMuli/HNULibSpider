@@ -11,6 +11,8 @@ Description: 说明文档
 
 因为数据库综合实验的那个版本涉及到 MySQL 的数据写入，所以这边的代码我又重新写了一遍，把输出文件改成了 JSON 格式。
 
+项目还有一个分支 [dart](https://github.com/BTMUli/HNULibSpider/tree/dart) 用的是 Dart 语言实现的版本。
+
 ## 配置说明
 
 将项目 [Release](https://github.com/BTMuli/HNULibSpider/releases) 中的 ZIP 文件下载解压，然后打开其中的 `main.exe` 执行即可。
@@ -22,10 +24,6 @@ Description: 说明文档
 > + python: 3.10.4
 > + chrome: 103.0.5060.66
 > + chromedriver: 103.0.5060.53（压缩包内含文件）
-
-## 源码说明
-
-`lib` 目录下面的东西我没传上来，但是 Release 里面有，包括 `chromedriver` 跟应用的 `ico` 图标。
 
 ## 打包说明
 
