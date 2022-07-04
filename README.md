@@ -1,6 +1,6 @@
 ---
 Date: 2022-06-29
-Update: 2022-07-03
+Update: 2022-07-04
 Author: 目棃
 Description: 说明文档
 ---
@@ -13,7 +13,9 @@ Description: 说明文档
 
 ## 配置说明
 
-将项目 [Release](https://github.com/BTMuli/HNULibSpider/releases) 中的 UpZIP 文件下载解压，然后打开其中的 `main.exe` 执行即可。
+将项目 [Release](https://github.com/BTMuli/HNULibSpider/releases) 中的 ZIP 文件下载解压，然后打开其中的 `main.exe` 执行即可。
+
+爬取的数据将会在同级目录下生成的 `booksInfo.json` 中保存。
 
 > **建议在相关环境下运行**：
 >
@@ -30,13 +32,14 @@ Description: 说明文档
 本项目采用 `PyInstaller` 进行程序打包，相关命令如下:
 
 ```shell
-pyinstaller -F main.py -i lib/cover.ico
+pyinstaller -F main.py -i lib/cover.ico --distpath .
 ```
 
 相关参数：
 
 + `-F` ：打包成一个`exe` 应用程序
 + `-i`：指定程序 `ico` 图标目录
++ `--distpath`：指定 `exe` 输出目录
 
 ### Tag 的处理
 

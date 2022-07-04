@@ -17,6 +17,7 @@ Copyright 2022 BTMuli
 # 内置包
 import json
 import os
+import string
 from time import sleep
 # 导入包
 from selenium import webdriver
@@ -24,20 +25,38 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 
+# 一些简单功能的封装
+
+# 返回正确类型数据
+def readInputCheck(out):
+    out: string
+    Input = input(out)
+    res = Input.isdigit()
+    if not res:
+        print("数据输入类型错误！应输入自然数！")
+        return "falseType"
+    return Input
+
+
+# 通过循环检查完成变量赋值
+def readInput(out):
+    out: string
+    flag = False
+    while not flag:
+        res = readInputCheck(out)
+        if res != "noData" and res != "falseType":
+            return int(res)
+
+
 # 参数输入
 def argsInput():
-    print("请输入图书编号 code ")
-    try:
-        start = int(input("请输入起始编号："))
-        end = int(input("请输入末尾编号："))
-        if 0 <= start <= end:
-            return [start, end]
-        else:
-            argsErr("数据输入大小错误！将重新输入...")
-            return False
-    except ValueError:
-        argsErr("数据输入类型错误！将重新输入...")
+    print("请输入图书编号")
+    start = readInput("请输入起始编号：")
+    end = readInput("请输入末尾编号：")
+    if start > end:
+        argsErr("末尾编号应不小于起始编号！")
         return False
+    return [start, end]
 
 
 # 错误处理&输出
@@ -68,9 +87,8 @@ class Book:
             self.PR = p
 
     def out(self):
-        for name, value in vars(self).items():
-            if value != '':
-                print('%s: %s' % (name, value))
+        outStr = "\n标题：\t{0}\n作者：\t{1}\nISBN：\t{2}\n出版社：\t{3}".format(self.title, self.author, self.ISBN, self.PR)
+        print(outStr)
 
 
 # 四位数
@@ -80,9 +98,9 @@ def getBooks(res):
     url = 'https://opac.hnu.edu.cn/opac/book/200001'
     start = res[0]
     end = res[1]
-    print("\n开始爬取数据...")
+    argsErr("\n开始爬取数据...")
     successBook = 0
-    for i in range(start, end+1):
+    for i in range(start, end + 1):
         a = "%04d" % i
         url_b = url + a
         res = getBook(url_b, successBook)
@@ -95,26 +113,27 @@ def getBooks(res):
 
 # 简单封装一下
 def getXpath(xpath):
-    return browser.find_element(by=By.XPATH, value=xpath)
+    return browser.find_element(by=By.XPATH, value=xpath).text
 
 
 def getBook(url, count):
-    out_num = "\n正在爬取图书...\nurl={0}".format(url)
+    out_num = "正在爬取图书...\nurl={0}".format(url)
     print(out_num)
     browser.get(url)
     sleep(2)
     # Xpath 定位跟数据获取
     try:
-        title = getXpath('//*[@id="bookInfoTable"]/tbody//tr[@data-sort="40"]/td[2]/a').text
-        author = getXpath('//*[@id="bookInfoTable"]/tbody//tr[@data-sort="40"]/td[2]').text
+        title = getXpath('//*[@id="bookInfoTable"]/tbody//tr[@data-sort="40"]/td[2]/a')
+        author = getXpath('//*[@id="bookInfoTable"]/tbody//tr[@data-sort="40"]/td[2]')
         if "/ " in author:
             author = author.split("/ ")[1]
-        ISBN = getXpath('//*[@id="bookInfoTable"]/tbody/tr[@data-sort="10"]/td[2]').text.split(" ")[0]
-        PR = getXpath('//*[@id="bookInfoTable"]/tbody//tr[@data-sort="50"]/td[2]/a').text
+        ISBN = getXpath('//*[@id="bookInfoTable"]/tbody/tr[@data-sort="10"]/td[2]').split(" ")[0]
+        PR = getXpath('//*[@id="bookInfoTable"]/tbody//tr[@data-sort="50"]/td[2]/a')
         count = count + 1
         book = Book(title, author, ISBN, PR)
         book.out()
-        return [book.__dict__, count]
+        bookData = book.__dict__
+        return [bookData, count]
     except:
         print("爬取数据失败！")
 
@@ -124,10 +143,11 @@ if __name__ == "__main__":
     chromePath = 'lib/chromedriver.exe'
     browserOptions = webdriver.ChromeOptions()
     browserOptions.add_experimental_option("excludeSwitches", ["enable-automation", "enable-logging"])
+    browserOptions.add_argument("--headless")
     browserService = Service(executable_path=chromePath)
     browser = webdriver.Chrome(service=browserService, options=browserOptions)
     # 文件
-    with open('out/booksInfo.json', "a", encoding='utf-8') as outFile:
+    with open('booksInfo.json', "a", encoding='utf-8') as outFile:
         # 程序主体
         Res = False
         while Res is False:

@@ -9,8 +9,10 @@ venv
 
 # PyInstaller 生成目录
 build
-dist
 main.spec
 
 # 测试用 exe
 main.exe
+
+# 导出目录
+booksInfo.json
