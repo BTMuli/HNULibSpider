@@ -1,6 +1,6 @@
 ---
 Date: 2022-06-29
-Update: 2022-07-04
+Update: 2022-07-06
 Author: 目棃
 Description: 说明文档
 ---
@@ -12,6 +12,8 @@ Description: 说明文档
 因为数据库综合实验的那个版本涉及到 MySQL 的数据写入，所以这边的代码我又重新写了一遍，把输出文件改成了 JSON 格式。
 
 项目还有一个分支 [dart](https://github.com/BTMUli/HNULibSpider/tree/dart) 用的是 Dart 语言实现的版本。
+
+试着写了一些之后发现还是 python 比较容易上手，Dart 分支的就暂时不管了吧。
 
 ## 配置说明
 
