@@ -63,6 +63,16 @@ git push origin :refs/tags/alpha
 - [ ] 导出到 XLS （方便观看）
 - [ ] 爬取范围调整（目前默认是 20000 往后）
 
+## 包依赖
+
+[`requirements.txt`](requirements.txt) 采用如下命令生成：
+
+```shell
+pip freeze > requirements.txt
+```
+
+包含个人开发过程中使用过的所有依赖。
+
 ## LICENSE
 
 > 查完资料才发现应该换成 MIT 会好一点，不过小项目就算了。
