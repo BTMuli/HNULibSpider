@@ -1,6 +1,6 @@
 ---
 Date: 2022-06-29
-Update: 2022-07-06
+Update: 2022-07-10
 Author: 目棃
 Description: 说明文档
 ---
@@ -13,7 +13,7 @@ Description: 说明文档
 
 项目还有一个分支 [dart](https://github.com/BTMUli/HNULibSpider/tree/dart) 用的是 Dart 语言实现的版本。
 
-试着写了一些之后发现还是 python 比较容易上手，Dart 分支的就暂时不管了吧。
+试着写了一些之后发现还是 python 比较容易上手，Dart 分支的后续应该没有更新的打算。
 
 ## 配置说明
 
@@ -41,7 +41,7 @@ pyinstaller -F main.py -i lib/cover.ico --distpath .
 + `-i`：指定程序 `ico` 图标目录
 + `--distpath`：指定 `exe` 输出目录
 
-### Tag 的处理
+## Tag 的处理
 
 由于 Github 不支持对于已有 tag  的删除操作，所以需要在本地命令行 进行操作并同步到远程。
 
@@ -56,6 +56,12 @@ git push origin :refs/tags/[tagname]
 ```sh
 git push origin :refs/tags/alpha
 ```
+
+## TODO
+
+- [ ] GUI界面（不知道写不写的出来）
+- [ ] 导出到 XLS （方便观看）
+- [ ] 爬取范围调整（目前默认是 20000 往后）
 
 ## LICENSE
 
