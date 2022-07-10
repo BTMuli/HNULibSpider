@@ -5,6 +5,10 @@ Author: 目棃
 Description: 说明文档
 ---
 
+![](https://img.shields.io/github/license/BTMuli/HNULibSpider?style=for-the-badge)
+![](https://img.shields.io/github/v/release/BTMuli/HNULibSpider?style=for-the-badge)
+![](https://img.shields.io/github/last-commit/BTMuli/HNULibSpider/master?style=for-the-badge)
+
 ## 项目说明
 
 本项目源自数据库综合实验选题——图书管理系统项目的图书数据获取爬虫，采用 Selenium 进行数据爬取。
