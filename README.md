@@ -1,6 +1,6 @@
 ---
 Date: 2022-06-29
-Update: 2022-07-03
+Update: 2022-07-10
 Author: 目棃
 Description: 说明文档
 ---
@@ -10,6 +10,8 @@ Description: 说明文档
 本项目为项目 HNULibSpider 的分支项目，采用跟其不同的语言对同一个功能进行重构。
 
 之前的项目采用 Python + Selenium ，而本项目采用 Dart + webdriver ，思路大致相似。
+
+个人目前对于 Dart 并不是那么熟悉，这个分支后续不打算更新了。
 
 ## 配置说明
 
