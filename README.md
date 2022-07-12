@@ -1,6 +1,6 @@
 ---
 Date: 2022-06-29
-Update: 2022-07-10
+Update: 2022-07-12
 Author: 目棃
 Description: 说明文档
 ---
@@ -45,6 +45,20 @@ pyinstaller -F main.py -i lib/cover.ico --distpath .
 + `-i`：指定程序 `ico` 图标目录
 + `--distpath`：指定 `exe` 输出目录
 
+## 包依赖
+
+[`requirements.txt`](requirements.txt) 采用如下命令生成：
+
+```shell
+pip freeze > requirements.txt
+```
+
+开发时请先通过如下命令安装相应环境：
+
+```shell
+pip install -r requirements.txt
+```
+
 ## Tag 的处理
 
 由于 Github 不支持对于已有 tag  的删除操作，所以需要在本地命令行 进行操作并同步到远程。
@@ -66,16 +80,6 @@ git push origin :refs/tags/alpha
 - [ ] GUI界面（不知道写不写的出来）
 - [ ] 导出到 XLS （方便观看）
 - [ ] 爬取范围调整（目前默认是 20000 往后）
-
-## 包依赖
-
-[`requirements.txt`](requirements.txt) 采用如下命令生成：
-
-```shell
-pip freeze > requirements.txt
-```
-
-包含个人开发过程中使用过的所有依赖。
 
 ## LICENSE
 
